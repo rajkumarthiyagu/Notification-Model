@@ -1,0 +1,10 @@
+
+Hi $Id,
+
+ticket from Department: $category
+
+Message:
+	$query
+
+Thanks, 
+$category

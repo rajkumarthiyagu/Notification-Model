@@ -1,0 +1,84 @@
+insert into r_eventDetails values (1,"HR","accomodation",000671)
+insert into r_eventDetails values (2,"HR","adrenalin",000672)
+insert into r_eventDetails values (3,"HR","certificate",000673)
+insert into r_eventDetails values (4,"HR","compensation",000674)
+insert into r_eventDetails values (5,"HR","correction in records",000675)
+insert into r_eventDetails values (6,"HR","insurance",000676)
+insert into r_eventDetails values (7,"HR","leave",000677)
+insert into r_eventDetails values (8,"HR","library",000678)
+insert into r_eventDetails values (9,"HR","perfomance management",000671)
+insert into r_eventDetails values (10,"HR","requests for letter from HR",000679)
+insert into r_eventDetails values (11,"IT","Antivirus - Issues",000671)
+insert into r_eventDetails values (12,"IT","Backup Request",000672)
+insert into r_eventDetails values (13,"IT","Backup Restore Request",000674)
+insert into r_eventDetails values (14,"IT","DL Addition/ Deletion / Update",000677)
+insert into r_eventDetails values (15,"IT","Dual Network Ports",000678)
+insert into r_eventDetails values (16,"IT","Email ID Creation / Deletion Request",000679)
+insert into r_eventDetails values (17,"IT","Email Transfer",000678)
+insert into r_eventDetails values (18,"IT","Enabling datacard port for laptops",000674)
+insert into r_eventDetails values (20,"ITGroup","Enabling datacard port for laptops",000674)
+insert into r_eventDetails values (21,"IT","Enabling datacard port for laptops",000674)
+select * from r_eventDetails
+select * from RaiseTicket
+desc r_Event
+select * from r_Event 
+alter table r_Event MODIFY id INT NOT NULL;
+alter table r_Event drop id 
+
+delete from RaiseTicket where category = 'IT';
+create table r_Channel(number int primary key,communication varchar(100))
+insert into r_Channel values(1,"E-mail");
+insert into r_Channel values(2,"System Console");
+insert into r_Channel values(3,"SMS");
+select * from r_Channel
+
+select * from RaiseTicket
+create table r_EmployeeUser(empid int, username varchar(100),password varchar(50),primary key(empid));
+create table r_Employee(empId int,empName varchar(20),emailid varchar(100),groupId int,primary key(empId),foreign key(groupId)references r_Group(groupId))
+create table r_Group(groupId int,groupName varchar (100) , primary key(groupId))
+
+
+insert into r_Employee values (671,"HARIBABU","haribabu.vengathachalam@qfor.com",1);
+insert into r_Employee values (672,"Rajkumar","rajkumar.thiyagarajan@qfor.com",1);
+insert into r_Employee values (678,"Mohana","mohanasundari.Ganesh@qfor.com",2);
+insert into r_Employee values (680,"Lavanaya","lavanaya.muniswamy@qfor.com",2);
+
+select * from r_Employee
+
+insert into r_EmployeeUser values (671,"haribabu.vengatachalam@qfor.com","haribabu");
+insert into r_EmployeeUser values (672,"rajkumar.thiyagarajan@qfor.com","raj123kumar#");
+insert into r_EmployeeUser values (678,"mohanasundari.Ganesh@qfor.com","mohana");
+insert into r_EmployeeUser values (680,"lavanya.muniswamy@qfor.com","lavanya");
+insert into r_Employee values (681,"Gayathri","Gayathri.Balasubramanian@qfor.com","gayathri");
+
+select e.empid,e.firstname,e.emailid,u.password from admin_Employee e  join  admin_User u on e.empid = u.empid join admin_DepartmentEmployee d on e.empid = d.empid where d.deptid = 1
+
+select * from admin_Employee
+select * from admin_User
+select * from admin_DepartmentEmployee
+select * from r_EmployeeUser
+
+
+select * from r_eventDetails
+select * from r_Employee
+
+select * from r_EmployeeUser
+
+desc RaiseTicket
+
+select * from RaiseTicket
+
+insert into r_Group values (1,"HRGroup");
+insert into r_Group values (2,"ITGroup");
+select * from r_Channel
+desc r_Channel
+alter table r_eventDetails add column channel int;
+insert into r_eventDetails (channel)values
+ 
+ select * from r_eventDetails;
+ 
+ update r_eventDetails set channel = 1 where eventId = 19;
+ update r_eventDetails set channel = 1 where eventId =20;
+ update r_eventDetails set channel = 1 where eventId =18;
+    
+  alter table r_eventDetails add foreign key(channel) references r_Channel(number);

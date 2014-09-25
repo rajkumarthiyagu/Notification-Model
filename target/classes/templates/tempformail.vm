@@ -1,0 +1,7 @@
+<body>
+Hi,
+<p>ticket for Department: $category<p></br>
+
+Ticket Issue : $query</br>
+<a href="http://localhost:8080/notifier/jsp/view.jsp?category=$category&sub=$sub&subj=$subject&query=$subquery&event=$eventId">Click to view ticket</a> 
+</body>

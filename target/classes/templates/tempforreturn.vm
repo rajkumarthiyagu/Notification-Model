@@ -1,0 +1,12 @@
+
+<html>
+<body>
+Hi $Id,
+
+ <p>  Your Ticket has been raised and it will be processed  ASAP.</p>
+
+<br>
+Thanks,<br>
+$category
+</body>
+</html>
